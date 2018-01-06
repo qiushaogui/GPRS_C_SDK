@@ -1,0 +1,28 @@
+
+MAKE              init
+CC                sdk_init.c
+AR                libinit_debug.a
+
+MAKE              demo/gpio
+CC                demo_gpio.c
+AR                libgpio_debug.a
+
+
+LDGEN  by csdk    cust.ld
+
+LD                gpio.elf
+ElfCombine        Elf binary & map file
+
+GEN               stripped (rm syms) elf file gpio.elf
+mips-elf-ld: /cygdrive/e/GPRS/GPRS_C_SDK/hex/gpio/gpio.elf: access beyond end of merged section (-99877216)
+
+CP  		  AUDIO CFP FILE......
+AUDIO CFG         No audio cfp file
+SREC              gpio.srec for flash/romulator
+
+LODTOBIN  e:\GPRS\GPRS_C_SDK\hex\gpio\gpio_flash.lod
+LODTOBIN          Sucessful
+LODCOMBINE        Combine user lod with Platform lod
+LODCOMBINE        Combine sucessful
+
+=== Build Time: 15s at 2018-01-06 19:12:43 ===
